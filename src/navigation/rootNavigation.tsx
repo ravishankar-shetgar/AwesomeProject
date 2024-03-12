@@ -7,6 +7,7 @@ import {FONTS} from '../common/fonts';
 import {HistoryIcon, HomeIcon} from '../common/icons';
 import STRINGS from '../common/strings';
 import {getIsLoggedIn} from '../redux/selectors';
+import GameEndScreen from '../screens/gameEnd/GameEnd.screen';
 import GamePlayScreen from '../screens/gameplay/GamePlay.screen';
 import HistoryScreen from '../screens/history/History.screen';
 import HomeScreen from '../screens/home/Home.screen';
@@ -68,13 +69,17 @@ const TabNavigationStack = () => {
 const HomeNavigationStack = () => {
   return (
     <HomeStack.Navigator screenOptions={{headerShown: false}}>
-      <HomeStack.Screen name="HomeScreen" component={HomeScreen} />
+      <HomeStack.Screen name="StartScreen" component={HomeScreen} />
       <HomeStack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
-        options={{headerShown: true, headerTitle: STRINGS.startAGame}}
+        name="GamePlayScreen"
+        component={GamePlayScreen}
+        options={{headerShown: true, title: STRINGS.newGame}}
       />
-      <HomeStack.Screen name="GamePlayScreen" component={GamePlayScreen} />
+      <HomeStack.Screen
+        name="GameEndScreen"
+        component={GameEndScreen}
+        options={{headerShown: false, title: STRINGS.gameOver}}
+      />
     </HomeStack.Navigator>
   );
 };
@@ -82,7 +87,7 @@ const HomeNavigationStack = () => {
 const HistoryNavigationStack = () => {
   return (
     <HistoryStack.Navigator screenOptions={{headerShown: false}}>
-      <HistoryStack.Screen name="History" component={HistoryScreen} />
+      <HistoryStack.Screen name="HistoryScreen" component={HistoryScreen} />
     </HistoryStack.Navigator>
   );
 };

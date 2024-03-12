@@ -1,10 +1,13 @@
+import {GameDetails} from '../redux/history/history.reducer.types';
+
 export type HomeNavigationStackType = {
-  HomeScreen: undefined;
+  StartScreen: undefined;
   GamePlayScreen: undefined;
+  GameEndScreen: GameDetails;
 };
 
 export type HistoryNavigationStackType = {
-  History: undefined;
+  HistoryScreen: undefined;
 };
 
 export type LoginNavigationStackType = {
